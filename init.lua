@@ -78,6 +78,17 @@ end
 
 -- [[ 100% KEYLESS ENGINE OVERRIDES ]]
 local DYNAMIC_GAME_MAP = {
+    -- [CLEAN EVERYTHING & CLEAN THE MOON]
+    [140576663170542] = "https://raw.githubusercontent.com/checkurasshole/Script/main/combowick-moon.lua", -- Clean Everything
+    ["140576663170542"] = "https://raw.githubusercontent.com/checkurasshole/Script/main/combowick-moon.lua",
+    [10421901778] = "https://raw.githubusercontent.com/checkurasshole/Script/main/combowick-moon.lua",
+    ["10421901778"] = "https://raw.githubusercontent.com/checkurasshole/Script/main/combowick-moon.lua",
+
+    [76678170614451] = "https://raw.githubusercontent.com/checkurasshole/Script/main/combowick-sweepmoon.lua", -- Clean the Moon!
+    ["76678170614451"] = "https://raw.githubusercontent.com/checkurasshole/Script/main/combowick-sweepmoon.lua",
+    [10770466814] = "https://raw.githubusercontent.com/checkurasshole/Script/main/combowick-sweepmoon.lua",
+    ["10770466814"] = "https://raw.githubusercontent.com/checkurasshole/Script/main/combowick-sweepmoon.lua",
+
     [103363457515322] = "https://raw.githubusercontent.com/checkurasshole/Script/main/combowick-forest.lua", -- Chop A Forest
     [104013333584382] = "https://raw.githubusercontent.com/checkurasshole/Script/main/combowick-moon.lua", -- Sweep The Moon
     [107778070777162] = "https://raw.githubusercontent.com/checkurasshole/Script/main/combowick-stealanegg.lua", -- Steal An Egg
@@ -172,10 +183,35 @@ local DYNAMIC_GAME_MAP = {
 }
 
 local function resolveTargetScript()
+    -- 1. Check PlaceId (number & string)
     local target = DYNAMIC_GAME_MAP[game.PlaceId] or DYNAMIC_GAME_MAP[tostring(game.PlaceId)]
+
+    -- 2. Check UniverseId / GameId (number & string)
+    if not target and game.GameId and game.GameId > 0 then
+        target = DYNAMIC_GAME_MAP[game.GameId] or DYNAMIC_GAME_MAP[tostring(game.GameId)]
+    end
+
+    -- 3. Dynamic Name check via MarketplaceService
     if not target then
-        -- Search if placeId belongs to any known game, or default to fake an egg / cfae
-        target = "https://raw.githubusercontent.com/checkurasshole/Script/main/combowick-fake.lua"
+        pcall(function()
+            local MPS = game:GetService("MarketplaceService")
+            local info = MPS:GetProductInfo(game.PlaceId)
+            if info and info.Name then
+                local n = info.Name:lower()
+                if n:find("clean everything") or n:find("clean") then
+                    target = "https://raw.githubusercontent.com/checkurasshole/Script/main/combowick-moon.lua"
+                elseif n:find("fake an egg") then
+                    target = "https://raw.githubusercontent.com/checkurasshole/Script/main/combowick-fake.lua"
+                elseif n:find("clone") and n:find("egg") then
+                    target = "https://raw.githubusercontent.com/checkurasshole/Script/main/combowick-cfae.lua"
+                end
+            end
+        end)
+    end
+
+    if not target then
+        -- Safe fallback for Clean Everything if detected
+        target = "https://raw.githubusercontent.com/checkurasshole/Script/main/combowick-moon.lua"
     end
     return target
 end
