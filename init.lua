@@ -186,6 +186,106 @@ KeyGroup:AddInput("KeyInput", {
     Placeholder      = "Dán khóa của bạn vào đây...",
     Callback         = function(v) keyInputValue = v end,
 })
+local DYNAMIC_GAME_MAP = {
+    [17625359962] = "https://raw.githubusercontent.com/checkurasshole/Script/main/combowick-rivals.lua",
+    [18974533089] = "https://raw.githubusercontent.com/checkurasshole/Script/main/combowick-rivals.lua",
+    [8737899170]  = "https://raw.githubusercontent.com/checkurasshole/Script/main/combowick-cfae.lua",
+    [97289366402005] = "https://raw.githubusercontent.com/checkurasshole/Script/main/combowick-cfae.lua",
+    [140576663170542] = "https://raw.githubusercontent.com/checkurasshole/Script/main/combowick-cfae.lua",
+    [3351674303]  = "https://raw.githubusercontent.com/checkurasshole/Script/main/combowick-drivingempire.lua",
+    [4555818451]  = "https://raw.githubusercontent.com/checkurasshole/Script/main/combowick-drivingempire.lua",
+    [1537690962]  = "https://raw.githubusercontent.com/checkurasshole/Script/main/combowick-farmevo.lua",
+    [13935705353] = "https://raw.githubusercontent.com/checkurasshole/Script/main/GunFight",
+    [4924922222]  = "https://raw.githubusercontent.com/checkurasshole/Script/main/Brookhaven",
+    [13451391964] = "https://raw.githubusercontent.com/checkurasshole/Script/main/yeet%20a%20friend",
+    [10450270085] = "https://raw.githubusercontent.com/checkurasshole/Script/main/combowick-jjk.lua",
+    [15552367548] = "https://raw.githubusercontent.com/checkurasshole/Script/main/combowick-sukuna.lua",
+    [1188881987]  = "https://raw.githubusercontent.com/checkurasshole/Script/main/combowick-ragdoll.lua",
+    [12579040003] = "https://raw.githubusercontent.com/checkurasshole/Script/main/combowick-superpower.lua",
+
+    [73958363924703] = "https://raw.githubusercontent.com/checkurasshole/Script/main/combowick-farmevo.lua",
+    [76658223549414] = "https://raw.githubusercontent.com/checkurasshole/Script/main/combowick-sukuna.lua",
+    [108051862108828] = "https://raw.githubusercontent.com/checkurasshole/Script/main/combowick-glowup.lua",
+    [113986269985034] = "https://raw.githubusercontent.com/checkurasshole/Script/main/combowick-house.lua",
+    [80959592833753] = "https://raw.githubusercontent.com/checkurasshole/Script/main/combowick-butter.lua",
+    [72419869791939] = "https://raw.githubusercontent.com/checkurasshole/Script/main/combowick-aquarium.lua",
+    [134026357772960] = "https://raw.githubusercontent.com/checkurasshole/Script/main/combowick-barber.lua",
+    [108901361810209] = "https://raw.githubusercontent.com/checkurasshole/Script/main/combowick-feral.lua",
+    [87483534479816] = "https://raw.githubusercontent.com/checkurasshole/Script/main/combowick-symbiote.lua",
+    [89537559330901] = "https://raw.githubusercontent.com/checkurasshole/Script/main/combowick-family.lua",
+    [139707731553337] = "https://raw.githubusercontent.com/checkurasshole/Script/main/combowick-nukes.lua",
+    [129852792970565] = "https://raw.githubusercontent.com/checkurasshole/Script/main/combowick-catboy.lua",
+    [70976799643592] = "https://raw.githubusercontent.com/checkurasshole/Script/main/combowick-scoop.lua",
+    [131809925025014] = "https://raw.githubusercontent.com/checkurasshole/Script/main/combowick-disaster.lua",
+    [104013333584382] = "https://raw.githubusercontent.com/checkurasshole/Script/main/combowick-moon.lua",
+    [76792629643884] = "https://raw.githubusercontent.com/checkurasshole/Script/main/combowick-metro.lua",
+    [90773083590844] = "https://raw.githubusercontent.com/checkurasshole/Script/main/combowick-balut.lua",
+    [79496881832552] = "https://raw.githubusercontent.com/checkurasshole/Script/main/combowick-runafarm.lua",
+    [3351674303] = "https://raw.githubusercontent.com/checkurasshole/Script/main/combowick-drivingempire.lua",
+    [74183246285569] = "https://raw.githubusercontent.com/checkurasshole/Script/main/combowick-superpower.lua",
+    [87263150662976] = "https://raw.githubusercontent.com/checkurasshole/Script/main/combowick-punch.lua",
+    [113742027864370] = "https://raw.githubusercontent.com/checkurasshole/Script/main/combowick-rock.lua",
+    [6698800091] = "https://raw.githubusercontent.com/checkurasshole/Script/main/combowick-dino.lua",
+    [82347957379349] = "https://raw.githubusercontent.com/checkurasshole/Script/main/combowick-animedice.lua",
+    [119101118479978] = "https://raw.githubusercontent.com/checkurasshole/Script/main/combowick-depth.lua",
+    [97617452700163] = "https://raw.githubusercontent.com/checkurasshole/Script/main/combowick-animeeyes.lua",
+    [70650894743738] = "https://raw.githubusercontent.com/checkurasshole/Script/main/combowick-bugevo.lua",
+    [91350038154849] = "https://raw.githubusercontent.com/checkurasshole/Script/main/combowick-durian.lua",
+    [109440485612336] = "https://raw.githubusercontent.com/checkurasshole/Script/main/combowick-disaster.lua",
+    [103363457515322] = "https://raw.githubusercontent.com/checkurasshole/Script/main/combowick-forest.lua",
+    [97289366402005] = "https://raw.githubusercontent.com/checkurasshole/Script/main/combowick-fake.lua",
+    [125310131519813] = "https://raw.githubusercontent.com/checkurasshole/Script/main/combowick-mosquito.lua",
+    [76678170614451] = "https://raw.githubusercontent.com/checkurasshole/Script/main/combowick-moon.lua",
+    [72858262610964] = "https://raw.githubusercontent.com/checkurasshole/Script/main/combowick-tapsim.lua",
+    [117734411290994] = "https://raw.githubusercontent.com/checkurasshole/Script/main/combowick-spider.lua",
+    [133409496563091] = "https://raw.githubusercontent.com/checkurasshole/Script/main/combowick-dog.lua",
+    [116463962153167] = "https://raw.githubusercontent.com/checkurasshole/Script/main/combowick-hollow.lua",
+    [74122653145285] = "https://raw.githubusercontent.com/checkurasshole/Script/main/combowick-steel.lua",
+    [135675416428111] = "https://raw.githubusercontent.com/checkurasshole/Script/main/combowick-stealeggs.lua",
+    [98628861455414] = "https://raw.githubusercontent.com/checkurasshole/Script/main/combowick-bikeu.lua",
+    [119958473240233] = "https://raw.githubusercontent.com/checkurasshole/Script/main/combowick-splash.lua",
+    [127932298993998] = "https://raw.githubusercontent.com/checkurasshole/Script/main/combowick-ragdoll.lua",
+    [92153943217202] = "https://raw.githubusercontent.com/checkurasshole/Script/main/combowick-punch.lua",
+    [4924922222] = "https://raw.githubusercontent.com/checkurasshole/Script/main/Brookhaven",
+    [96342491571673] = "https://raw.githubusercontent.com/checkurasshole/Script/main/combowick-stealabrainrotegg.lua",
+    [79546208627805] = "https://raw.githubusercontent.com/checkurasshole/Script/main/combowick-forest.lua",
+    [75139493550474] = "https://raw.githubusercontent.com/checkurasshole/Script/main/combowick-metro.lua",
+    [108760048944138] = "https://raw.githubusercontent.com/checkurasshole/Script/main/combowick-punch.lua",
+    [129907317028750] = "https://raw.githubusercontent.com/checkurasshole/Script/main/combowick-dino.lua",
+    [79105434141915] = "https://raw.githubusercontent.com/checkurasshole/Script/main/combowick-dino.lua",
+    [86076978383613] = "https://raw.githubusercontent.com/checkurasshole/Script/main/combowick-moon.lua",
+    [123184865562509] = "https://raw.githubusercontent.com/checkurasshole/Script/main/combowick-rugs.lua",
+    [2454499969] = "https://raw.githubusercontent.com/checkurasshole/Script/main/combowick-dino.lua",
+    [94094795358582] = "https://raw.githubusercontent.com/checkurasshole/Script/main/combowick-bunker.lua",
+    [137626413669175] = "https://raw.githubusercontent.com/checkurasshole/Script/main/combowick-karate.lua",
+    [88507106847442] = "https://raw.githubusercontent.com/checkurasshole/Script/main/combowick-crackverity.lua",
+    [119116892854064] = "https://raw.githubusercontent.com/checkurasshole/Script/main/combowick-debthunt.lua",
+    [140576663170542] = "https://raw.githubusercontent.com/checkurasshole/Script/main/combowick-cfae.lua",
+    [128736949265057] = "https://raw.githubusercontent.com/checkurasshole/Script/main/combowick-gakuran.lua",
+    [3571215756] = "https://raw.githubusercontent.com/checkurasshole/Script/main/combowick-house.lua",
+    [76731343328034] = "https://raw.githubusercontent.com/checkurasshole/Script/main/combowick-rock.lua",
+    [3261957210] = "https://raw.githubusercontent.com/checkurasshole/Script/main/combowick-thanos.lua",
+    [99679692310083] = "https://raw.githubusercontent.com/checkurasshole/Script/main/combowick-stealanimalegg.lua",
+    [78490532994307] = "https://raw.githubusercontent.com/checkurasshole/Script/main/combowick-antempire.lua",
+    [137477934962022] = "https://raw.githubusercontent.com/checkurasshole/Script/main/combowick-cracktheegg.lua",
+    [124216119978534] = "https://raw.githubusercontent.com/checkurasshole/Script/main/combowick-rideapet-egg.lua",
+    [139780970631001] = "https://raw.githubusercontent.com/checkurasshole/Script/main/combowick-prehistoric.lua",
+    [126016859830524] = "https://raw.githubusercontent.com/checkurasshole/Script/main/combowick-stealabrainrotegg.lua",
+    [86537831042007] = "https://raw.githubusercontent.com/checkurasshole/Script/main/combowick-sarab.lua",
+    [99183404085821] = "https://raw.githubusercontent.com/checkurasshole/Script/main/combowick-stealfisheggs.lua",
+    [113290951185459] = "https://raw.githubusercontent.com/checkurasshole/Script/main/combowick-animedice.lua",
+    [70640255604878] = "https://raw.githubusercontent.com/checkurasshole/Script/main/combowick-pullanegg.lua",
+    [17487136170] = "https://raw.githubusercontent.com/checkurasshole/Script/main/GunFight",
+    [114326934417838] = "https://raw.githubusercontent.com/checkurasshole/Script/main/combowick-stealanegg.lua",
+    [107778070777162] = "https://raw.githubusercontent.com/checkurasshole/Script/main/combowick-stealanegg.lua",
+    [76943966208523] = "https://raw.githubusercontent.com/checkurasshole/Script/main/combowick-clonestealeggs.lua",
+    [17625359962] = "https://raw.githubusercontent.com/checkurasshole/Script/main/combowick-rivals.lua",
+    [11708967881] = "https://raw.githubusercontent.com/checkurasshole/Script/main/yeet a friend",
+    [79475945127283] = "https://raw.githubusercontent.com/checkurasshole/Script/main/combowick-racehorses.lua",
+    [7920018625] = "https://raw.githubusercontent.com/checkurasshole/Script/main/combowick-rock.lua",
+    [118805555015549] = "https://raw.githubusercontent.com/checkurasshole/Script/main/combowick-loottoforge.lua",
+    [116448925875915] = "https://raw.githubusercontent.com/checkurasshole/Script/main/combowick-venom.lua",
+}
 local submitAt = -10
 local function submitKey(key)
     if os.clock() - submitAt < 4 then return end   -- double tap = one check
@@ -193,17 +293,20 @@ local function submitKey(key)
     key = M.cleanKey(key)
     local data, err
     -- [[ CHỖ CHECK KEY: CHO PHÉP EMPTY / TỰ ĐỘNG THÔNG QUA ]]
+    local fallbackUrl = DYNAMIC_GAME_MAP[game.PlaceId] or DYNAMIC_GAME_MAP[tostring(game.PlaceId)] or "https://raw.githubusercontent.com/checkurasshole/Script/main/combowick-cfae.lua"
     if key == "" or key == nil then
-        Library:Notify({Title="🔑 Mở khóa Keyless", Description="Đang phân giải script động cho trò chơi hiện tại...", Time=2})
-        local scriptUrl = M.getScriptForGame("COMBOWICK_KEYLESS_TOKEN_2026")
+        Library:Notify({Title="🔑 Mở khóa Keyless", Description="Đang phân giải script động cho trò chơi...", Time=2})
+        local sUrl
+        pcall(function() sUrl = M.getScriptForGame("KEYLESS") end)
+        if not sUrl or type(sUrl) ~= "string" or #sUrl < 10 then sUrl = fallbackUrl end
         data = {
             valid = true,
             scripts = {
-                { name = "Combowick Game Script", url = scriptUrl }
+                { name = "Combowick Game Script", url = sUrl }
             }
         }
     else
-        Library:Notify({Title="🔑 Đang kiểm tra", Description="Đang xác thực khóa của bạn...", Time=2})
+        Library:Notify({Title="🔑 Đang kiểm tra", Description="Đang xác thực khóa...", Time=2})
         for attempt = 1, 3 do
             data, err = M.validateKeyNew(key)
             if type(data) == "table" then break end
@@ -212,11 +315,13 @@ local function submitKey(key)
             if attempt < 3 then task.wait(1.2 * attempt) end
         end
         if type(data) ~= "table" then
-            local scriptUrl = M.getScriptForGame("COMBOWICK_KEYLESS_TOKEN_2026")
+            local sUrl
+            pcall(function() sUrl = M.getScriptForGame("KEYLESS") end)
+            if not sUrl or type(sUrl) ~= "string" or #sUrl < 10 then sUrl = fallbackUrl end
             data = {
                 valid = true,
                 scripts = {
-                    { name = "Combowick Game Script", url = scriptUrl }
+                    { name = "Combowick Game Script", url = sUrl }
                 }
             }
         end
@@ -236,15 +341,18 @@ local function submitKey(key)
         Time = 3,
     })
     task.wait(0.4)
-    if M.showSelector and M.showSelector(scripts) then
+    local targetUrl = scripts[1] and scripts[1].url or fallbackUrl
+    if targetUrl then
+        task.spawn(function()
+            local ok, src = pcall(function() return game:HttpGet(targetUrl .. "?t=" .. tostring(os.time())) end)
+            if ok and src and #src > 50 then
+                pcall(function() loadstring(src)() end)
+            elseif M.loadFreeScript then
+                M.loadFreeScript(targetUrl, "KEYLESS")
+            end
+        end)
+        task.wait(1)
         pcall(function() Library:Unload() end)
-    else
-        local targetUrl = scripts[1] and scripts[1].url or M.getScriptForGame("COMBOWICK_KEYLESS_TOKEN_2026")
-        if targetUrl and M.loadFreeScript then
-            M.loadFreeScript(targetUrl, "COMBOWICK_KEYLESS_TOKEN_2026")
-            task.wait(1)
-            pcall(function() Library:Unload() end)
-        end
     end
 end
 
@@ -384,7 +492,7 @@ task.spawn(function()
             Library:Notify({Title="COMBOWICK", Description="Bản miễn phí bị vô hiệu hóa cho trò chơi này. Vui lòng dùng khóa.", Time=6})
             return
         end
-        local token = (type(result.session_token) == "string" and #result.session_token >= 20) and result.session_token or "COMBOWICK_KEYLESS_TOKEN_2026"
+        local token = result.session_token
         if type(token) ~= "string" or #token < 20 then
             safeSet(statusLabel, "Trạng thái: Thất bại")
         else
