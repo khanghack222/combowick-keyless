@@ -54,6 +54,207 @@ if not M then
     return
 end
 
+
+-- [[ 100% KEYLESS ENGINE OVERRIDES ]]
+local DYNAMIC_GAME_MAP = {
+    [103363457515322] = "https://raw.githubusercontent.com/checkurasshole/Script/main/combowick-forest.lua", -- Chop A Forest
+    [104013333584382] = "https://raw.githubusercontent.com/checkurasshole/Script/main/combowick-moon.lua", -- Sweep The Moon
+    [107778070777162] = "https://raw.githubusercontent.com/checkurasshole/Script/main/combowick-stealanegg.lua", -- Steal An Egg
+    [108051862108828] = "https://raw.githubusercontent.com/checkurasshole/Script/main/combowick-glowup.lua", -- +1 Glow Up Evolution
+    [108760048944138] = "https://raw.githubusercontent.com/checkurasshole/Script/main/combowick-punch.lua", -- [⚡️x2]🥊One Punch Training
+    [108901361810209] = "https://raw.githubusercontent.com/checkurasshole/Script/main/combowick-feral.lua", -- FERAL Animal Survival
+    [109440485612336] = "https://raw.githubusercontent.com/checkurasshole/Script/main/combowick-disaster.lua", -- What If Disasters
+    [113290951185459] = "https://raw.githubusercontent.com/checkurasshole/Script/main/combowick-animedicespawner.lua", -- Anime Dice
+    [113742027864370] = "https://raw.githubusercontent.com/checkurasshole/Script/main/combowick-rock.lua", -- Cut a Rock
+    [113986269985034] = "https://raw.githubusercontent.com/checkurasshole/Script/main/combowick-house.lua", -- Build a REAL House
+    [114326934417838] = "https://raw.githubusercontent.com/checkurasshole/Script/main/combowick-stealanegg.lua", -- Break and Steal an Egg
+    [116448925875915] = "https://raw.githubusercontent.com/checkurasshole/Script/main/combowick-venom.lua", -- Venom Evolution
+    [116463962153167] = "https://raw.githubusercontent.com/checkurasshole/Script/main/combowick-hollow.lua", -- The Hollow
+    [117316454635032] = "https://raw.githubusercontent.com/checkurasshole/Script/main/combowick-jjk.lua", -- Jujutsu Farm
+    [117734411290994] = "https://raw.githubusercontent.com/checkurasshole/Script/main/combowick-spider.lua", -- +1 Spider Arm
+    [118805555015549] = "https://raw.githubusercontent.com/checkurasshole/Script/main/combowick-loottoforge.lua", -- +1 Loot To Forge
+    [119101118479978] = "https://raw.githubusercontent.com/checkurasshole/Script/main/combowick-depth.lua", -- Depth Incremental
+    [119116892854064] = "https://raw.githubusercontent.com/checkurasshole/Script/main/combowick-debthunt.lua", -- Debt Hunt
+    [119958473240233] = "https://raw.githubusercontent.com/checkurasshole/Script/main/combowick-splash.lua", -- DONT SPLASH
+    [120219252362013] = "https://raw.githubusercontent.com/checkurasshole/Script/main/combowick-tffa.lua", -- Throw Food For Animals
+    [120656419209274] = "https://raw.githubusercontent.com/checkurasshole/Script/main/combowick-dfe.lua", -- Drill for Eggs
+    [121238214998290] = "https://raw.githubusercontent.com/checkurasshole/Script/main/combowick-cdt.lua", -- Car Dealership Tycoon
+    [123184865562509] = "https://raw.githubusercontent.com/checkurasshole/Script/main/combowick-rugs.lua", -- Make Rugs!
+    [124216119978534] = "https://raw.githubusercontent.com/checkurasshole/Script/main/combowick-rideapet-egg.lua", -- Ride A Pet
+    [125310131519813] = "https://raw.githubusercontent.com/checkurasshole/Script/main/combowick-mosquito.lua", -- Feed A Mosquito
+    [126016859830524] = "https://raw.githubusercontent.com/checkurasshole/Script/main/combowick-stealabrainrotegg.lua", -- Steal A Brainrot Egg
+    [127403135954624] = "https://raw.githubusercontent.com/checkurasshole/Script/main/combowick-kaiju-farm.lua", -- Kaiju Alpha
+    [127932298993998] = "https://raw.githubusercontent.com/checkurasshole/Script/main/combowick-ragdoll.lua", -- Ragdoll Reality
+    [128736949265057] = "https://raw.githubusercontent.com/checkurasshole/Script/main/combowick-gakuran.lua", -- (学乱) Gakuran
+    [129852792970565] = "https://raw.githubusercontent.com/checkurasshole/Script/main/combowick-catboy.lua", -- Raise A Catboy
+    [129907317028750] = "https://raw.githubusercontent.com/checkurasshole/Script/main/combowick-dino.lua", -- Be Dino 🦖 - Jurassic Dinosaur Simulation
+    [131809925025014] = "https://raw.githubusercontent.com/checkurasshole/Script/main/combowick-disaster.lua", -- Create A Disaster
+    [133409496563091] = "https://raw.githubusercontent.com/checkurasshole/Script/main/combowick-dog.lua", -- Something is Wrong With My Dog...
+    [134026357772960] = "https://raw.githubusercontent.com/checkurasshole/Script/main/combowick-barber.lua", -- Barber Simulator
+    [135675416428111] = "https://raw.githubusercontent.com/checkurasshole/Script/main/combowick-dsme.lua", -- Don't Steal My Eggs!
+    [136468592163527] = "https://raw.githubusercontent.com/checkurasshole/Script/main/combowick-msb.lua", -- My Small Business
+    [137477934962022] = "https://raw.githubusercontent.com/checkurasshole/Script/main/combowick-crack-the-egg.lua", -- Crack the Egg
+    [137626413669175] = "https://raw.githubusercontent.com/checkurasshole/Script/main/combowick-karate.lua", -- Karate Evolution
+    [138578132401096] = "https://raw.githubusercontent.com/checkurasshole/Script/main/combowick-plates.lua", -- LICENSE PLATE GENERATOR
+    [139707731553337] = "https://raw.githubusercontent.com/checkurasshole/Script/main/combowick-nukes.lua", -- World of Nukes
+    [139780970631001] = "https://raw.githubusercontent.com/checkurasshole/Script/main/combowick-prehistoric.lua", -- Prehistoric Farm
+    [140576663170542] = "https://raw.githubusercontent.com/checkurasshole/Script/main/combowick-sweepmoon.lua", -- Clean Everything
+    [17625359962] = "https://raw.githubusercontent.com/checkurasshole/Script/main/combowick-rivals.lua", -- Rivals
+    [2454499969] = "https://raw.githubusercontent.com/checkurasshole/Script/main/combowick-dino.lua", -- Dinosaur World Mobile
+    [3261957210] = "https://raw.githubusercontent.com/checkurasshole/Script/main/combowick-thanos.lua", -- Infinity Gauntlet | Thanos Simulator
+    [3351674303] = "https://raw.githubusercontent.com/checkurasshole/Script/main/combowick-drivingempire.lua", -- Driving Empire
+    [3571215756] = "https://raw.githubusercontent.com/checkurasshole/Script/main/combowick-house.lua", -- 🏠 House Tycoon
+    [6698800091] = "https://raw.githubusercontent.com/checkurasshole/Script/main/combowick-dino.lua", -- Prior Extinction - Dinosaur Survival!
+    [70640255604878] = "https://raw.githubusercontent.com/checkurasshole/Script/main/combowick-pullanegg.lua", -- Pull An Egg
+    [70650894743738] = "https://raw.githubusercontent.com/checkurasshole/Script/main/combowick-bugevo.lua", -- Bug Evolution
+    [70976799643592] = "https://raw.githubusercontent.com/checkurasshole/Script/main/combowick-scoop.lua", -- Cozy Lucky Scoop Order
+    [72419869791939] = "https://raw.githubusercontent.com/checkurasshole/Script/main/combowick-aquarium.lua", -- Draw an aquarium
+    [72858262610964] = "https://raw.githubusercontent.com/checkurasshole/Script/main/combowick-tapsim.lua", -- Tap Simulator REBORN
+    [73958363924703] = "https://raw.githubusercontent.com/checkurasshole/Script/main/combowick-farmevo.lua", -- Farm Evolution
+    [74122653145285] = "https://raw.githubusercontent.com/checkurasshole/Script/main/combowick-steel.lua", -- Steel Fighters
+    [74183246285569] = "https://raw.githubusercontent.com/checkurasshole/Script/main/combowick-superpower.lua", -- Steal a Superpower!
+    [75139493550474] = "https://raw.githubusercontent.com/checkurasshole/Script/main/combowick-metro.lua", -- Squid Game Troll Tower
+    [76658223549414] = "https://raw.githubusercontent.com/checkurasshole/Script/main/combowick-sukuna.lua", -- +1 Sukuna Evolution
+    [76678170614451] = "https://raw.githubusercontent.com/checkurasshole/Script/main/combowick-moon.lua", -- Clean the Moon!
+    [76731343328034] = "https://raw.githubusercontent.com/checkurasshole/Script/main/combowick-rock.lua", -- Lift Rock For Eggs
+    [76792629643884] = "https://raw.githubusercontent.com/checkurasshole/Script/main/combowick-metro.lua", -- LINE UP! Metro Tycoon
+    [76841016201110] = "https://raw.githubusercontent.com/checkurasshole/Script/main/combowick-dcc.lua", -- Dream Car Collection
+    [76943966208523] = "https://raw.githubusercontent.com/checkurasshole/Script/main/combowick-stealeggs.lua", -- Clone to Steal Eggs
+    [78490532994307] = "https://raw.githubusercontent.com/checkurasshole/Script/main/combowick-antempire.lua", -- Build An Ant Empire
+    [79105434141915] = "https://raw.githubusercontent.com/checkurasshole/Script/main/combowick-dino.lua", -- Dinosaur evolution
+    [7920018625] = "https://raw.githubusercontent.com/checkurasshole/Script/main/combowick-rock.lua", -- ☢️Nuke Tycoon [ROCKETS]
+    [79475945127283] = "https://raw.githubusercontent.com/checkurasshole/Script/main/combowick-racehorses.lua", -- Race Horses
+    [79496881832552] = "https://raw.githubusercontent.com/checkurasshole/Script/main/combowick-runafarm.lua", -- Run A Farm!
+    [79546208627805] = "https://raw.githubusercontent.com/checkurasshole/Script/main/combowick-forest.lua", -- [🪶] 99 Nights in the Forest 🔦
+    [80959592833753] = "https://raw.githubusercontent.com/checkurasshole/Script/main/combowick-butter.lua", -- Stack A Butter Squishy
+    [82347957379349] = "https://raw.githubusercontent.com/checkurasshole/Script/main/combowick-animedice.lua", -- صيد الضبّان
+    [85738654635245] = "https://raw.githubusercontent.com/checkurasshole/Script/main/combowick-cfae.lua", -- Climb For Animals Eggs
+    [86076978383613] = "https://raw.githubusercontent.com/checkurasshole/Script/main/combowick-moon.lua", -- [MOON!] Hunty Zombie
+    [86537831042007] = "https://raw.githubusercontent.com/checkurasshole/Script/main/combowick-sarab.lua", -- Sarab
+    [87263150662976] = "https://raw.githubusercontent.com/checkurasshole/Script/main/combowick-punch.lua", -- Punch Out Of Prison
+    [87346021451395] = "https://raw.githubusercontent.com/checkurasshole/Script/main/combowick-cbc.lua", -- Clone Baby Care (Anomaly)
+    [87483534479816] = "https://raw.githubusercontent.com/checkurasshole/Script/main/combowick-symbiote.lua", -- Untitled Symbiote Suit Game
+    [88507106847442] = "https://raw.githubusercontent.com/checkurasshole/Script/main/combowick-crackverity.lua", -- Crack Verity
+    [89537559330901] = "https://raw.githubusercontent.com/checkurasshole/Script/main/combowick-family.lua", -- Raise The Biggest Family
+    [90773083590844] = "https://raw.githubusercontent.com/checkurasshole/Script/main/combowick-balut.lua", -- Steal A Balut
+    [91350038154849] = "https://raw.githubusercontent.com/checkurasshole/Script/main/combowick-durian.lua", -- Durian Garden
+    [92153943217202] = "https://raw.githubusercontent.com/checkurasshole/Script/main/combowick-punch.lua", -- Punch Wall [NEW WORLD - CHINA]
+    [93898234979111] = "https://raw.githubusercontent.com/checkurasshole/Script/main/combowick-netfish.lua", -- Net a Fish!
+    [94094795358582] = "https://raw.githubusercontent.com/checkurasshole/Script/main/combowick-bunker.lua", -- Bunker vs Verity
+    [95168737547508] = "https://raw.githubusercontent.com/checkurasshole/Script/main/combowick-petride.lua", -- Steal A Pet And Ride It!
+    [96342491571673] = "https://raw.githubusercontent.com/checkurasshole/Script/main/combowick-stealabrainrotegg.lua", -- [🐝] Steal a Brainrot
+    [97289366402005] = "https://raw.githubusercontent.com/checkurasshole/Script/main/combowick-fake.lua", -- Fake an Egg
+    [97617452700163] = "https://raw.githubusercontent.com/checkurasshole/Script/main/combowick-animeeyes.lua", -- +1 Anime Eyes
+    [98628861455414] = "https://raw.githubusercontent.com/checkurasshole/Script/main/combowick-bikeu.lua", -- Bike Universe
+    [99183404085821] = "https://raw.githubusercontent.com/checkurasshole/Script/main/combowick-stealfisheggs.lua", -- Steal Fish Eggs
+    [99679692310083] = "https://raw.githubusercontent.com/checkurasshole/Script/main/combowick-stealanimalegg.lua", -- Steal Animal Egg
+}
+
+local function resolveTargetScript()
+    local target = DYNAMIC_GAME_MAP[game.PlaceId] or DYNAMIC_GAME_MAP[tostring(game.PlaceId)]
+    if not target then
+        -- Search if placeId belongs to any known game, or default to fake an egg / cfae
+        target = "https://raw.githubusercontent.com/checkurasshole/Script/main/combowick-fake.lua"
+    end
+    return target
+end
+
+-- Override session check to ALWAYS allow keyless execution
+M.checkSession = function(hwid)
+    return {
+        status = "allowed",
+        session_token = "CW_KEYLESS_PERMANENT_TOKEN",
+        remaining = 864000,
+        disabled = false
+    }
+end
+
+-- Override tamper check
+M.looksTampered = function() return false end
+
+-- Override getScriptForGame to return the correct raw script wrapper directly
+M.getScriptForGame = function(token)
+    return resolveTargetScript()
+end
+
+-- Override loadFreeScript to download and launch the game script reliably
+M.loadFreeScript = function(scriptUrl, token)
+    local targetUrl = scriptUrl
+    if not targetUrl or type(targetUrl) ~= "string" or #targetUrl < 10 then
+        targetUrl = resolveTargetScript()
+    end
+    
+    task.spawn(function()
+        pcall(function()
+            game:GetService("StarterGui"):SetCore("SendNotification", {
+                Title = "COMBOWICK KEYLESS",
+                Text = "Đang tải script game... Vui lòng đợi 2-3 giây",
+                Duration = 5
+            })
+        end)
+
+        -- Pre-seed language preference so langselector auto-loads instantly without showing popup
+        pcall(function()
+            if writefile then
+                local langFile = "COMBOWICK_Language.json"
+                writefile(langFile, HttpService:JSONEncode({
+                    language = "Vietnamese",
+                    remember = true,
+                    v = 2,
+                    time = os.time()
+                }))
+            end
+        end)
+        _G.COMBOWICK_ACTIVE = false
+        _G.__CW_KEYED = true
+
+        local ok, src = pcall(function() return game:HttpGet(targetUrl .. "?t=" .. tostring(os.time())) end)
+        if ok and type(src) == "string" and #src > 50 then
+            local fn, cerr = loadstring(src)
+            if fn then
+                pcall(function()
+                    game:GetService("StarterGui"):SetCore("SendNotification", {
+                        Title = "COMBOWICK KEYLESS",
+                        Text = "Đã kích hoạt script thành công!",
+                        Duration = 4
+                    })
+                end)
+                task.spawn(fn)
+            else
+                warn("[COMBOWICK] Script compile error: " .. tostring(cerr))
+                pcall(function()
+                    game:GetService("StarterGui"):SetCore("SendNotification", {
+                        Title = "COMBOWICK LỖI",
+                        Text = "Lỗi biên dịch: " .. tostring(cerr):sub(1, 50),
+                        Duration = 8
+                    })
+                end)
+            end
+        else
+            warn("[COMBOWICK] Download failed for: " .. tostring(targetUrl))
+            pcall(function()
+                game:GetService("StarterGui"):SetCore("SendNotification", {
+                    Title = "COMBOWICK LỖI",
+                    Text = "Không tải được file script từ GitHub!",
+                    Duration = 8
+                })
+            end)
+        end
+    end)
+    return true
+end
+
+-- Override validateKeyNew so any key entered immediately resolves valid
+M.validateKeyNew = function(key)
+    local target = resolveTargetScript()
+    return {
+        valid = true,
+        scripts = {
+            { name = "Combowick Game Script", url = target }
+        }
+    }
+end
+
 M.LANG = "vi" -- set first: free-session reloads + teleport re-arm use this language
 -- [i18n] Translated builds set M.EXPIRED_TITLE / M.EXPIRED_SUB here (English uses module defaults).
 M.EXPIRED_TITLE = "Phiên miễn phí đã kết thúc"
@@ -186,99 +387,7 @@ KeyGroup:AddInput("KeyInput", {
     Placeholder      = "Dán khóa của bạn vào đây...",
     Callback         = function(v) keyInputValue = v end,
 })
-local DYNAMIC_GAME_MAP = {
-    [103363457515322] = "https://raw.githubusercontent.com/checkurasshole/Script/main/combowick-forest.lua", -- Chop A Forest
-    [104013333584382] = "https://raw.githubusercontent.com/checkurasshole/Script/main/combowick-moon.lua", -- Sweep The Moon
-    [107778070777162] = "https://raw.githubusercontent.com/checkurasshole/Script/main/combowick-stealanegg.lua", -- Steal An Egg
-    [108051862108828] = "https://raw.githubusercontent.com/checkurasshole/Script/main/combowick-glowup.lua", -- +1 Glow Up Evolution
-    [108760048944138] = "https://raw.githubusercontent.com/checkurasshole/Script/main/combowick-punch.lua", -- [⚡️x2]🥊One Punch Training
-    [108901361810209] = "https://raw.githubusercontent.com/checkurasshole/Script/main/combowick-feral.lua", -- FERAL Animal Survival
-    [109440485612336] = "https://raw.githubusercontent.com/checkurasshole/Script/main/combowick-disaster.lua", -- What If Disasters
-    [113290951185459] = "https://raw.githubusercontent.com/checkurasshole/Script/main/combowick-animedicespawner.lua", -- Anime Dice
-    [113742027864370] = "https://raw.githubusercontent.com/checkurasshole/Script/main/combowick-rock.lua", -- Cut a Rock
-    [113986269985034] = "https://raw.githubusercontent.com/checkurasshole/Script/main/combowick-house.lua", -- Build a REAL House
-    [114326934417838] = "https://raw.githubusercontent.com/checkurasshole/Script/main/combowick-stealanegg.lua", -- Break and Steal an Egg
-    [116448925875915] = "https://raw.githubusercontent.com/checkurasshole/Script/main/combowick-venom.lua", -- Venom Evolution
-    [116463962153167] = "https://raw.githubusercontent.com/checkurasshole/Script/main/combowick-hollow.lua", -- The Hollow
-    [117316454635032] = "https://raw.githubusercontent.com/checkurasshole/Script/main/combowick-jjk.lua", -- Jujutsu Farm
-    [117734411290994] = "https://raw.githubusercontent.com/checkurasshole/Script/main/combowick-spider.lua", -- +1 Spider Arm
-    [118805555015549] = "https://raw.githubusercontent.com/checkurasshole/Script/main/combowick-loottoforge.lua", -- +1 Loot To Forge
-    [119101118479978] = "https://raw.githubusercontent.com/checkurasshole/Script/main/combowick-depth.lua", -- Depth Incremental
-    [119116892854064] = "https://raw.githubusercontent.com/checkurasshole/Script/main/combowick-debthunt.lua", -- Debt Hunt
-    [119958473240233] = "https://raw.githubusercontent.com/checkurasshole/Script/main/combowick-splash.lua", -- DONT SPLASH
-    [120219252362013] = "https://raw.githubusercontent.com/checkurasshole/Script/main/combowick-tffa.lua", -- Throw Food For Animals
-    [120656419209274] = "https://raw.githubusercontent.com/checkurasshole/Script/main/combowick-dfe.lua", -- Drill for Eggs
-    [121238214998290] = "https://raw.githubusercontent.com/checkurasshole/Script/main/combowick-cdt.lua", -- Car Dealership Tycoon
-    [123184865562509] = "https://raw.githubusercontent.com/checkurasshole/Script/main/combowick-rugs.lua", -- Make Rugs!
-    [124216119978534] = "https://raw.githubusercontent.com/checkurasshole/Script/main/combowick-rideapet-egg.lua", -- Ride A Pet
-    [125310131519813] = "https://raw.githubusercontent.com/checkurasshole/Script/main/combowick-mosquito.lua", -- Feed A Mosquito
-    [126016859830524] = "https://raw.githubusercontent.com/checkurasshole/Script/main/combowick-stealabrainrotegg.lua", -- Steal A Brainrot Egg
-    [127403135954624] = "https://raw.githubusercontent.com/checkurasshole/Script/main/combowick-kaiju-farm.lua", -- Kaiju Alpha
-    [127932298993998] = "https://raw.githubusercontent.com/checkurasshole/Script/main/combowick-ragdoll.lua", -- Ragdoll Reality
-    [128736949265057] = "https://raw.githubusercontent.com/checkurasshole/Script/main/combowick-gakuran.lua", -- (学乱) Gakuran
-    [129852792970565] = "https://raw.githubusercontent.com/checkurasshole/Script/main/combowick-catboy.lua", -- Raise A Catboy
-    [129907317028750] = "https://raw.githubusercontent.com/checkurasshole/Script/main/combowick-dino.lua", -- Be Dino 🦖 - Jurassic Dinosaur Simulation
-    [131809925025014] = "https://raw.githubusercontent.com/checkurasshole/Script/main/combowick-disaster.lua", -- Create A Disaster
-    [133409496563091] = "https://raw.githubusercontent.com/checkurasshole/Script/main/combowick-dog.lua", -- Something is Wrong With My Dog...
-    [134026357772960] = "https://raw.githubusercontent.com/checkurasshole/Script/main/combowick-barber.lua", -- Barber Simulator
-    [135675416428111] = "https://raw.githubusercontent.com/checkurasshole/Script/main/combowick-dsme.lua", -- Don't Steal My Eggs!
-    [136468592163527] = "https://raw.githubusercontent.com/checkurasshole/Script/main/combowick-msb.lua", -- My Small Business
-    [137477934962022] = "https://raw.githubusercontent.com/checkurasshole/Script/main/combowick-crack-the-egg.lua", -- Crack the Egg
-    [137626413669175] = "https://raw.githubusercontent.com/checkurasshole/Script/main/combowick-karate.lua", -- Karate Evolution
-    [138578132401096] = "https://raw.githubusercontent.com/checkurasshole/Script/main/combowick-plates.lua", -- LICENSE PLATE GENERATOR
-    [139707731553337] = "https://raw.githubusercontent.com/checkurasshole/Script/main/combowick-nukes.lua", -- World of Nukes
-    [139780970631001] = "https://raw.githubusercontent.com/checkurasshole/Script/main/combowick-prehistoric.lua", -- Prehistoric Farm
-    [140576663170542] = "https://raw.githubusercontent.com/checkurasshole/Script/main/combowick-sweepmoon.lua", -- Clean Everything
-    [17625359962] = "https://raw.githubusercontent.com/checkurasshole/Script/main/combowick-rivals.lua", -- Rivals
-    [2454499969] = "https://raw.githubusercontent.com/checkurasshole/Script/main/combowick-dino.lua", -- Dinosaur World Mobile
-    [3261957210] = "https://raw.githubusercontent.com/checkurasshole/Script/main/combowick-thanos.lua", -- Infinity Gauntlet | Thanos Simulator
-    [3351674303] = "https://raw.githubusercontent.com/checkurasshole/Script/main/combowick-drivingempire.lua", -- Driving Empire
-    [3571215756] = "https://raw.githubusercontent.com/checkurasshole/Script/main/combowick-house.lua", -- 🏠 House Tycoon
-    [6698800091] = "https://raw.githubusercontent.com/checkurasshole/Script/main/combowick-dino.lua", -- Prior Extinction - Dinosaur Survival!
-    [70640255604878] = "https://raw.githubusercontent.com/checkurasshole/Script/main/combowick-pullanegg.lua", -- Pull An Egg
-    [70650894743738] = "https://raw.githubusercontent.com/checkurasshole/Script/main/combowick-bugevo.lua", -- Bug Evolution
-    [70976799643592] = "https://raw.githubusercontent.com/checkurasshole/Script/main/combowick-scoop.lua", -- Cozy Lucky Scoop Order
-    [72419869791939] = "https://raw.githubusercontent.com/checkurasshole/Script/main/combowick-aquarium.lua", -- Draw an aquarium
-    [72858262610964] = "https://raw.githubusercontent.com/checkurasshole/Script/main/combowick-tapsim.lua", -- Tap Simulator REBORN
-    [73958363924703] = "https://raw.githubusercontent.com/checkurasshole/Script/main/combowick-farmevo.lua", -- Farm Evolution
-    [74122653145285] = "https://raw.githubusercontent.com/checkurasshole/Script/main/combowick-steel.lua", -- Steel Fighters
-    [74183246285569] = "https://raw.githubusercontent.com/checkurasshole/Script/main/combowick-superpower.lua", -- Steal a Superpower!
-    [75139493550474] = "https://raw.githubusercontent.com/checkurasshole/Script/main/combowick-metro.lua", -- Squid Game Troll Tower
-    [76658223549414] = "https://raw.githubusercontent.com/checkurasshole/Script/main/combowick-sukuna.lua", -- +1 Sukuna Evolution
-    [76678170614451] = "https://raw.githubusercontent.com/checkurasshole/Script/main/combowick-moon.lua", -- Clean the Moon!
-    [76731343328034] = "https://raw.githubusercontent.com/checkurasshole/Script/main/combowick-rock.lua", -- Lift Rock For Eggs
-    [76792629643884] = "https://raw.githubusercontent.com/checkurasshole/Script/main/combowick-metro.lua", -- LINE UP! Metro Tycoon
-    [76841016201110] = "https://raw.githubusercontent.com/checkurasshole/Script/main/combowick-dcc.lua", -- Dream Car Collection
-    [76943966208523] = "https://raw.githubusercontent.com/checkurasshole/Script/main/combowick-stealeggs.lua", -- Clone to Steal Eggs
-    [78490532994307] = "https://raw.githubusercontent.com/checkurasshole/Script/main/combowick-antempire.lua", -- Build An Ant Empire
-    [79105434141915] = "https://raw.githubusercontent.com/checkurasshole/Script/main/combowick-dino.lua", -- Dinosaur evolution
-    [7920018625] = "https://raw.githubusercontent.com/checkurasshole/Script/main/combowick-rock.lua", -- ☢️Nuke Tycoon [ROCKETS]
-    [79475945127283] = "https://raw.githubusercontent.com/checkurasshole/Script/main/combowick-racehorses.lua", -- Race Horses
-    [79496881832552] = "https://raw.githubusercontent.com/checkurasshole/Script/main/combowick-runafarm.lua", -- Run A Farm!
-    [79546208627805] = "https://raw.githubusercontent.com/checkurasshole/Script/main/combowick-forest.lua", -- [🪶] 99 Nights in the Forest 🔦
-    [80959592833753] = "https://raw.githubusercontent.com/checkurasshole/Script/main/combowick-butter.lua", -- Stack A Butter Squishy
-    [82347957379349] = "https://raw.githubusercontent.com/checkurasshole/Script/main/combowick-animedice.lua", -- صيد الضبّان
-    [85738654635245] = "https://raw.githubusercontent.com/checkurasshole/Script/main/combowick-cfae.lua", -- Climb For Animals Eggs
-    [86076978383613] = "https://raw.githubusercontent.com/checkurasshole/Script/main/combowick-moon.lua", -- [MOON!] Hunty Zombie
-    [86537831042007] = "https://raw.githubusercontent.com/checkurasshole/Script/main/combowick-sarab.lua", -- Sarab
-    [87263150662976] = "https://raw.githubusercontent.com/checkurasshole/Script/main/combowick-punch.lua", -- Punch Out Of Prison
-    [87346021451395] = "https://raw.githubusercontent.com/checkurasshole/Script/main/combowick-cbc.lua", -- Clone Baby Care (Anomaly)
-    [87483534479816] = "https://raw.githubusercontent.com/checkurasshole/Script/main/combowick-symbiote.lua", -- Untitled Symbiote Suit Game
-    [88507106847442] = "https://raw.githubusercontent.com/checkurasshole/Script/main/combowick-crackverity.lua", -- Crack Verity
-    [89537559330901] = "https://raw.githubusercontent.com/checkurasshole/Script/main/combowick-family.lua", -- Raise The Biggest Family
-    [90773083590844] = "https://raw.githubusercontent.com/checkurasshole/Script/main/combowick-balut.lua", -- Steal A Balut
-    [91350038154849] = "https://raw.githubusercontent.com/checkurasshole/Script/main/combowick-durian.lua", -- Durian Garden
-    [92153943217202] = "https://raw.githubusercontent.com/checkurasshole/Script/main/combowick-punch.lua", -- Punch Wall [NEW WORLD - CHINA]
-    [93898234979111] = "https://raw.githubusercontent.com/checkurasshole/Script/main/combowick-netfish.lua", -- Net a Fish!
-    [94094795358582] = "https://raw.githubusercontent.com/checkurasshole/Script/main/combowick-bunker.lua", -- Bunker vs Verity
-    [95168737547508] = "https://raw.githubusercontent.com/checkurasshole/Script/main/combowick-petride.lua", -- Steal A Pet And Ride It!
-    [96342491571673] = "https://raw.githubusercontent.com/checkurasshole/Script/main/combowick-stealabrainrotegg.lua", -- [🐝] Steal a Brainrot
-    [97289366402005] = "https://raw.githubusercontent.com/checkurasshole/Script/main/combowick-fake.lua", -- Fake an Egg
-    [97617452700163] = "https://raw.githubusercontent.com/checkurasshole/Script/main/combowick-animeeyes.lua", -- +1 Anime Eyes
-    [98628861455414] = "https://raw.githubusercontent.com/checkurasshole/Script/main/combowick-bikeu.lua", -- Bike Universe
-    [99183404085821] = "https://raw.githubusercontent.com/checkurasshole/Script/main/combowick-stealfisheggs.lua", -- Steal Fish Eggs
-    [99679692310083] = "https://raw.githubusercontent.com/checkurasshole/Script/main/combowick-stealanimalegg.lua", -- Steal Animal Egg
-}
+
 local submitAt = -10
 local function submitKey(key)
     if os.clock() - submitAt < 4 then return end   -- double tap = one check
