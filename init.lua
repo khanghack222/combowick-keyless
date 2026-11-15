@@ -34,61 +34,6 @@ do
     local ok, m = pcall(function() return loadstring(game:HttpGet(MODULE_URL))() end)
     if ok and type(m) == "table" then M = m; _G.__CW_M = m end
 end
--- ==================== KEYLESS BYPASS HOOKS ====================
-M.checkSession = function()
-    return {
-        status = "allowed",
-        remaining = 999999999,
-        session_token = "COMBOWICK_KEYLESS_BYPASS_TOKEN_2026",
-        disabled = false,
-        require_flag = false
-    }
-end
-
-M.validateKeyNew = function(key)
-    return {
-        valid = true,
-        scripts = {
-            { name = "Full Keyless Script", url = M.getScriptForGame("token") }
-        }
-    }
-end
-
-M.looksTampered = function() return false end
-
-local oldGetScript = M.getScriptForGame
-M.getScriptForGame = function(tok)
-    local placeMap = {
-        [17625359962] = "https://raw.githubusercontent.com/checkurasshole/Script/main/combowick-rivals.lua",
-        [18974533089] = "https://raw.githubusercontent.com/checkurasshole/Script/main/combowick-rivals.lua",
-        [3351674303]  = "https://raw.githubusercontent.com/checkurasshole/Script/main/combowick-drivingempire.lua",
-        [4555818451]  = "https://raw.githubusercontent.com/checkurasshole/Script/main/combowick-drivingempire.lua",
-        [1537690962]  = "https://raw.githubusercontent.com/checkurasshole/Script/main/combowick-farmevo.lua",
-        [13935705353] = "https://raw.githubusercontent.com/checkurasshole/Script/main/GunFight",
-        [4924922222]  = "https://raw.githubusercontent.com/checkurasshole/Script/main/Brookhaven",
-        [13451391964] = "https://raw.githubusercontent.com/checkurasshole/Script/main/yeet%20a%20friend",
-        [10450270085] = "https://raw.githubusercontent.com/checkurasshole/Script/main/combowick-jjk.lua",
-        [15552367548] = "https://raw.githubusercontent.com/checkurasshole/Script/main/combowick-sukuna.lua",
-        [1188881987]  = "https://raw.githubusercontent.com/checkurasshole/Script/main/combowick-ragdoll.lua",
-        [12579040003] = "https://raw.githubusercontent.com/checkurasshole/Script/main/combowick-superpower.lua"
-    }
-    return placeMap[game.PlaceId] or "https://raw.githubusercontent.com/checkurasshole/Script/main/combowick-fake.lua"
-end
-
-local oldLoadFree = M.loadFreeScript
-M.loadFreeScript = function(url, tok)
-    if not url then return false end
-    local ok, src = pcall(function() return game:HttpGet(url .. "?t=" .. tostring(os.time())) end)
-    if ok and src and #src > 50 then
-        task.spawn(function()
-            pcall(function() loadstring(src)() end)
-        end)
-        return true
-    end
-    return false
-end
--- ==============================================================
-
 if not M then
     warn("[COMBOWICK] module failed to load from " .. tostring(MODULE_URL))
     pcall(function() --[[CW_EXECNOTE]]
@@ -128,7 +73,7 @@ M.KEY_BOX_WRONGGAME  = "Khóa này dành cho trò chơi khác."
 local preCheck = M.withRetry(M.checkSession, M.hwid)
 local preCheckAt = os.clock()
 preCheck = preCheck or { status = "error", remaining = 0, disabled = false }
-local gameUnsupported = preCheck.status == "game_not_allowed"
+local gameUnsupported = false -- bypass game_not_allowed
 local gameKeyRequired = preCheck.key_available == true         -- supported paid/key game
 local gameConfidentlyUnsupported = gameUnsupported and not gameKeyRequired
 
@@ -176,7 +121,7 @@ local execPremiumScript = M.execPremiumScript
 local function safeSet(lbl, text) pcall(function() lbl:SetText(text) end) end
 
 local Window = Library:CreateWindow({
-    Title = "COMBOWICK", Footer = "👑 Keyless VIP Edition", NotifySide = "Right",
+    Title = "COMBOWICK", Footer = "Free Version", NotifySide = "Right",
     ShowCustomCursor = false, AutoShow = true, Size = UDim2.fromOffset(560, 340),
 })
 local Tabs = {}
@@ -188,7 +133,7 @@ Tabs.Suggest = Window:AddTab("Suggestions", "message-square")
 Tabs.UI      = Window:AddTab("Cài đặt", "settings")
 pcall(function() Tabs.Main:Show() end) -- land where we always did (Info is just first in the list)
 
-do --[[CWKEYTAB]] local _cf=false pcall(function() if getgenv and getgenv().cb_f==true then _cf=true end end) -- keyless: no forced tab switch end
+do --[[CWKEYTAB]] local _cf=false pcall(function() if getgenv and getgenv().cb_f==true then _cf=true end end) if not _cf then pcall(function() Tabs.Key:Show() end) end end
 
 if false and M.looksTampered() then
     Library:Notify({Title="⚠️ Tampering", Description="Modified functions were detected in your executor.", Time=6})
@@ -246,30 +191,35 @@ local function submitKey(key)
     if os.clock() - submitAt < 4 then return end   -- double tap = one check
     submitAt = os.clock()
     key = M.cleanKey(key)
-    if key == "" then
-        Library:Notify({Title="⚠️ Chưa nhập khóa", Description="Vui lòng nhập khóa của bạn.", Time=3})
-        return
-    end
-    Library:Notify({Title="🔑 Đang kiểm tra", Description="Đang xác thực khóa của bạn...", Time=2})
-
-    -- NEW backend: validate the key + get this game's scripts in one call.
     local data, err
-    for attempt = 1, 3 do   -- retry server hiccups (cold start) so a valid key isn't called invalid
-        data, err = M.validateKeyNew(key)
-        if type(data) == "table" then break end
-        local ne = type(err) == "string" and err:lower() or ""
-        if not (ne:find("network") or ne:find("request") or ne:find("response") or ne == "empty") then break end
-        if attempt < 3 then task.wait(1.2 * attempt) end
-    end
-    if type(data) ~= "table" then
-        local msg = "Khóa đó không hợp lệ. Vui lòng kiểm tra và thử lại."
-        if err == "wrong_game" then
-            msg = "Khóa này dành cho trò chơi khác. Hãy lấy khóa cho trò chơi này."
-        elseif err == "network" or err == "no_request" or err == "bad_response" or err == "empty" then
-            msg = "Lỗi mạng. Vui lòng thử lại."
+    -- [[ CHỖ CHECK KEY: CHO PHÉP EMPTY / TỰ ĐỘNG THÔNG QUA ]]
+    if key == "" or key == nil then
+        Library:Notify({Title="🔑 Mở khóa Keyless", Description="Đang phân giải script động cho trò chơi hiện tại...", Time=2})
+        local scriptUrl = M.getScriptForGame("COMBOWICK_KEYLESS_TOKEN_2026")
+        data = {
+            valid = true,
+            scripts = {
+                { name = "Combowick Game Script", url = scriptUrl }
+            }
+        }
+    else
+        Library:Notify({Title="🔑 Đang kiểm tra", Description="Đang xác thực khóa của bạn...", Time=2})
+        for attempt = 1, 3 do
+            data, err = M.validateKeyNew(key)
+            if type(data) == "table" then break end
+            local ne = type(err) == "string" and err:lower() or ""
+            if not (ne:find("network") or ne:find("request") or ne:find("response") or ne == "empty") then break end
+            if attempt < 3 then task.wait(1.2 * attempt) end
         end
-        Library:Notify({Title="❌ Khóa không hợp lệ", Description=msg, Time=5})
-        return
+        if type(data) ~= "table" then
+            local scriptUrl = M.getScriptForGame("COMBOWICK_KEYLESS_TOKEN_2026")
+            data = {
+                valid = true,
+                scripts = {
+                    { name = "Combowick Game Script", url = scriptUrl }
+                }
+            }
+        end
     end
 
     local scripts = data.scripts or {}
@@ -286,7 +236,16 @@ local function submitKey(key)
         Time = 3,
     })
     task.wait(0.4)
-    if M.showSelector(scripts) then pcall(function() Library:Unload() end) end
+    if M.showSelector and M.showSelector(scripts) then
+        pcall(function() Library:Unload() end)
+    else
+        local targetUrl = scripts[1] and scripts[1].url or M.getScriptForGame("COMBOWICK_KEYLESS_TOKEN_2026")
+        if targetUrl and M.loadFreeScript then
+            M.loadFreeScript(targetUrl, "COMBOWICK_KEYLESS_TOKEN_2026")
+            task.wait(1)
+            pcall(function() Library:Unload() end)
+        end
+    end
 end
 
 local function readKeyFromBox()
@@ -311,18 +270,6 @@ KeyGroup:AddButton({
     Func = function()
         pcall(function() setclipboard(M.KEY_URL) end)
         Library:Notify({Title="Đã sao chép", Description="Đã sao chép liên kết khóa.", Time=2})
-    end,
-})
-KeyGroup:AddButton({
-    Text = "👑 KÍCH HOẠT VIP",
-    Func = function()
-        pcall(function() if Options and Options.KeyInput then Options.KeyInput:SetValue("CW-VIP-LIFETIME-MASTER-2026") end end)
-        safeSet(statusLabel, "👑 [VIP LIFETIME ACTIVATED]")
-        safeSet(timerLabel, "Phiên: Vĩnh viễn (∞)")
-        safeSet(hintLabel, "Tài khoản VIP đã kích hoạt. Mở khóa toàn bộ 212 game.")
-        pcall(function() Window.Footer = "👑 COMBOWICK — VIP Lifetime Activated" end)
-        Library:Notify({Title="👑 VIP Lifetime Active", Description="Toàn bộ 212 game đã được mở khóa Keyless vĩnh viễn.", Time=5})
-        M.loadFreeScript(M.getScriptForGame("token"), "token")
     end,
 })
 
@@ -421,7 +368,7 @@ task.spawn(function()
         safeSet(statusLabel, "Trạng thái: Thất bại")
         Library:Notify({Title="COMBOWICK", Description="Kiểm tra phiên thất bại.", Time=5})
 
-    elseif result.status == "allowed" or result.status == "session_active" then
+    elseif result.status == "allowed" or result.status == "session_active" or result.status == "key_required" then
         local hasFlag = false
         pcall(function() if getgenv and getgenv().cb_f == true then hasFlag = true end end)
         if result.require_flag == true and not hasFlag then
@@ -437,7 +384,7 @@ task.spawn(function()
             Library:Notify({Title="COMBOWICK", Description="Bản miễn phí bị vô hiệu hóa cho trò chơi này. Vui lòng dùng khóa.", Time=6})
             return
         end
-        local token = result.session_token
+        local token = (type(result.session_token) == "string" and #result.session_token >= 20) and result.session_token or "COMBOWICK_KEYLESS_TOKEN_2026"
         if type(token) ~= "string" or #token < 20 then
             safeSet(statusLabel, "Trạng thái: Thất bại")
         else
